@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/bootstrap-datepicker/bootstrap-datepicker.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Angular js -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="/static/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+	<script src="/static/angular-chart_js/Chart.js"></script>
+	<!-- <script src="/static/angular-chart_js/angular-chart.js"></script> -->
+	<script src = "/static/main.js"> </script>
+</head>
+
+
+<body ng-app = "mandi" ng-controller="myCtrl">
+	<div class="col-md-3">
+		<p>Please select Crop</p>
+		<select ng-model="cereal_name" ng-options="x for x in cereals"></select>
+	</div>
+	<div class="col-md-3">
+		<p>Please select mandi</p>
+		<select ng-model="mandi_name" ng-options="x for x in mandis"></select>
+	</div>
+	<div class = "col-md-4">
+		<div class="col-sm-6">
+			<p>Please select First Date</p>
+			<div class="input-group date" data-provide="datepicker">
+				<input type="text" class="form-control" id="date1" ng-model = "date1">
+				<div class="input-group-addon">
+					<span class="glyphicon glyphicon-th"></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<p>Please select Second Date</p>
+			<div class="input-group date" data-provide="datepicker">
+				<input type="text" class="form-control" id="date2" ng-model = "date2">
+				<div class="input-group-addon">
+					<span class="glyphicon glyphicon-th"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2">
+		<div>
+		<button type="button" class="btn" id = "submit_button" ng-click="myFunc()"></button>
+		</div>
+	</div>
+	<div class="col-md-6" ng-show = "show_chart" >
+		<canvas id="myChart"></canvas>
+	</div>
+	<div class="col-md-6" ng-show = "only_price" >
+		<p>Price for this mandi for this cereal is [price]]</p>
+	</div>
+</body>
+</html>	
